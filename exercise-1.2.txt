@@ -1,0 +1,21 @@
+Which Account owns the most Address Books?
+
+mysql> select AccountId, count(accountId) from AddressBook group by AccountId order by count(accountId) desc limit 1;
++-----------+------------------+
+| AccountId | count(accountId) |
++-----------+------------------+
+|         5 |               19 |
++-----------+------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
+Which Address Book contains the most Entries?
+
+mysql> select addressbookId, count(addressbookId) from Entry group by addressbookId order by count(addressbookId) desc limit 1;
++---------------+----------------------+
+| addressbookId | count(addressbookId) |
++---------------+----------------------+
+|            37 |                   52 |
++---------------+----------------------+
+1 row in set (0.01 sec)
