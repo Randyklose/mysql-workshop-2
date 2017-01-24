@@ -1,0 +1,59 @@
+Modify the decodemtl_addressbook.Account row
+
+mysql> select * from Account;
++----+---------------------+----------+---------------------+------------+
+| id | email               | password | createdOn           | modifiedOn |
++----+---------------------+----------+---------------------+------------+
+|  1 | randy@something.com | password | 2017-01-01 00:00:00 | NULL       |
++----+---------------------+----------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> update Account set password = "123456789";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Account;
++----+---------------------+-----------+---------------------+------------+
+| id | email               | password  | createdOn           | modifiedOn |
++----+---------------------+-----------+---------------------+------------+
+|  1 | randy@something.com | 123456789 | 2017-01-01 00:00:00 | NULL       |
++----+---------------------+-----------+---------------------+------------+
+1 row in set (0.00 sec)
+
+Modify the decodemtl_addressbook.AddressBook row
+
+mysql> select * from AddressBook;
++----+-----------+-------+---------------------+------------+
+| id | accountId | name  | createdOn           | modifiedOn |
++----+-----------+-------+---------------------+------------+
+|  1 |         1 | Randy | 2017-01-01 00:00:00 | NULL       |
++----+-----------+-------+---------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> update AddressBook set name = "Joker";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from AddressBook;
++----+-----------+-------+---------------------+------------+
+| id | accountId | name  | createdOn           | modifiedOn |
++----+-----------+-------+---------------------+------------+
+|  1 |         1 | Joker | 2017-01-01 00:00:00 | NULL       |
++----+-----------+-------+---------------------+------------+
+1 row in set (0.00 sec)
+
+Modify the three decodemtl_addressbook.Entry rows using one query only
+
+mysql> update Entry set contentLineTwo = "555-5555" where contentLineTwo is null;                                                                   
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from Entry;
++----+---------------+-----------+----------+---------------------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+| id | addressBookId | firstName | lastName | birthday            | type | subtype | contentLineOne | contentLineTwo | contentLineThree | contentLineFour | contentLineFive |
++----+---------------+-----------+----------+---------------------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+|  1 |             1 | Randy     | Klose    | 1987-08-22 00:00:00 | home | phone   |                | 555-5555       | NULL             | NULL            | NULL            |
+|  2 |             2 | Tony      | Blah     | 1990-01-08 00:00:00 | home | email   |                | 555-5555       | NULL             | NULL            | NULL            |
+|  3 |             3 | Mathieu   | Bluh     | 1980-03-05 00:00:00 | home | phone   |                | 555-5555       | NULL             | NULL            | NULL            |
++----+---------------+-----------+----------+---------------------+------+---------+----------------+----------------+------------------+-----------------+-----------------+
+3 rows in set (0.00 sec)

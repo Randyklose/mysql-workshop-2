@@ -1,0 +1,31 @@
+Retrieve data from the previously inserted decodemtl_addressbook.Account row
+
+mysql> select email from Account;
++---------------------+
+| email               |
++---------------------+
+| randy@something.com |
++---------------------+
+1 row in set (0.00 sec)
+
+Retrieve data from the previously inserted decodemtl_addressbook.AddressBook row
+
+mysql> select name from AddressBook;;                                                                              
++-------+
+| name  |
++-------+
+| Randy |
++-------+
+1 row in set (0.00 sec)
+
+Retrieve data from the previously inserted decodemtl_addressbook.Entry rows
+
+mysql> select lastname from Entry;
++----------+
+| lastname |
++----------+
+| Klose    |
+| Blah     |
+| Bluh     |
++----------+
+3 rows in set (0.00 sec)

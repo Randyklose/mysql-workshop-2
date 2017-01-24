@@ -1,0 +1,3 @@
+initialize sql then
+
+source data/import-table-structure.sql;

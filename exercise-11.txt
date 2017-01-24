@@ -1,0 +1,30 @@
+* How many Address Book Entries are not listed as ```other```?
+
+mysql> select count(id) from Entry where type = !"other";
++-----------+
+| count(id) |
++-----------+
+|      1600 |
++-----------+
+1 row in set, 1 warning (0.00 sec)
+
+* How many Address Book Entries are listed as either ```home``` or ```work```?
+
+mysql> select count(id) from Entry where type = "home" or type = "work";                                                 
++-----------+
+| count(id) |
++-----------+
+|      2800 |
++-----------+
+1 row in set (0.01 sec)
+
+* How many Address Book Entries are listed as ```phones```?
+
+mysql> select count(id) from Entry where subtype = "phone";
++-----------+
+| count(id) |
++-----------+
+|       600 |
++-----------+
+1 row in set (0.00 sec)
+
